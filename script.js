@@ -8,15 +8,27 @@
 
 let balloon = document.getElementById("balloon");
 function growBalloon(event) {
+//i had to use google to figure out why it would change pixels to 0, it had to do with my previous code being a string so i had to get do the window.getComptuedStyle (which i knew nothing about) and also use parseFloat (also knew nothing about) and then i had an issue with nothing happening, but it turns out it has to be made back to a string hence the concatenation. very hard especially since I didnt have any resources aside from google, and I feel like googling stuff is kind of cheating, since i think it should be all available through the lecture material, but i didnt have access to linked in learning so it had to be done
+    if (event.key === "ArrowUp") {
+        let currentSize =  window.getComputedStyle(balloon).fontSize;
+        let sizeNum = parseFloat(currentSize);
+        
+        let newSize = sizeNum * 1.1;
 
-    let currentSize = balloon.style.fontSize;
-
-    let newSize = currentSize * 1.1;
-
-    balloon.style.fontSize = newSize;
+        balloon.style.fontSize = newSize + "px";
+        event.preventDefault();
+    }
 
 }
-balloon.addEventListener("keydown", growBalloon);
+
+function shrinkBalloon(event) {
+    if (event.key === "ArrowDown") {
+        let currentSize = window.getComputedStyle(balloon).fontSize;
+
+        
+    }
+}
+document.addEventListener("keydown", growBalloon);
 
 // When that works, add a feature where, if you blow up the balloon past a certain size,
 // it explodes. In this case, exploding means that it is replaced with a 💥 emoji, and
