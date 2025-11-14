@@ -50,11 +50,18 @@ let startingSizeNum = parseFloat(startingSize);
 
 let popLimit = startingSizeNum * 5;
 console.log(startingSizeNum);
-// function popBalloon(event) {
-//     if 
-// }
+function popBalloon(event) {
+    if (event.key === "ArrowUp") {
+        let currentSize = window.getComputedStyle(balloon).fontSize;
+        let sizeNum = parseFloat(currentSize);
 
+        if (sizeNum >= popLimit) {
+            balloon.innerHTML = "💥"
+        }
+    }
+}
 
+document.addEventListener("keydown", popBalloon);
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
 // the first tab, and make it so that when you click the links at the top the correct
 // tab's contents are displayed and the others are hidden. Prevent the default action of
