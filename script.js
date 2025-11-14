@@ -5,6 +5,19 @@
 // Remember to include a unit in the value—for example, pixels (10px). The key names of
 // the arrow keys are "ArrowUp" and "ArrowDown". Make sure the keys change only the
 // balloon, without scrolling the page.
+
+let balloon = document.getElementById("balloon");
+function growBalloon(event) {
+
+    let currentSize = balloon.style.fontSize;
+
+    let newSize = currentSize * 1.1;
+
+    balloon.style.fontSize = newSize;
+
+}
+balloon.addEventListener("keydown", growBalloon);
+
 // When that works, add a feature where, if you blow up the balloon past a certain size,
 // it explodes. In this case, exploding means that it is replaced with a 💥 emoji, and
 // the event handler is removed (so that you can’t inflate or deflate the explosion).
