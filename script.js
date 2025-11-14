@@ -85,16 +85,28 @@ let content1= document.getElementById("tab1");
 let content2= document.getElementById("tab2");
 let content3= document.getElementById("tab3");
 
-content1.style.display = "block";
+content1.style.display = "none";
 content2.style.display = "none";
 content3.style.display = "none";
 
 
 function showTab(event) {
 
-
     event.preventDefault();
 
-    
-
+    if (event.target === tab1Link) {
+        content1.style.display ="block";
+        content2.style.display = "none";
+        content3.style.display = "none";
+    } else if (event.target === tab2Link) {
+        content1.style.display = "none";
+        content2.style.display = "block";
+        content3.style.display = "none";
+    } else if (event.target === tab3Link) {
+        content1.style.display = "none";
+        content2.style.display = "none";
+        content3.style.display = "block";
+    }
 }
+
+document.addEventListener("click", showTab);
