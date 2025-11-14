@@ -21,7 +21,7 @@ function growBalloon(event) {
         event.preventDefault();
     }
     //console.log(startingSizeNum); test to see if it still says starting size or not for pop function
-    console.log(popLimit);
+    //console.log(popLimit);
 }
 //after you do it first time its easy the 2nd time
 function shrinkBalloon(event) {
@@ -50,6 +50,7 @@ let startingSizeNum = parseFloat(startingSize);
 
 let popLimit = startingSizeNum * 5;
 console.log(startingSizeNum);
+
 function popBalloon(event) {
     if (event.key === "ArrowUp") {
         let currentSize = window.getComputedStyle(balloon).fontSize;
@@ -57,7 +58,11 @@ function popBalloon(event) {
 
         if (sizeNum >= popLimit) {
             balloon.innerHTML = "💥"
+            document.removeEventListener("keydown",growBalloon);
+            document.removeEventListener("keydown",shrinkBalloon);
         }
+
+        event.preventDefault();
     }
 }
 
