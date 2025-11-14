@@ -74,3 +74,27 @@ document.addEventListener("keydown", popBalloon);
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
+
+//use tab1Link, tab2Link, tab3Link. if tab1Link clicked, tab2 and tab3link display=none.
+
+let tab1Link = document.getElementById("tab1Link");
+let tab2Link = document.getElementById("tab2Link");
+let tab3Link = document.getElementById("tab3Link");
+
+let content1= document.getElementById("tab1");
+let content2= document.getElementById("tab2");
+let content3= document.getElementById("tab3");
+
+content1.style.display = "block";
+content2.style.display = "none";
+content3.style.display = "none";
+
+
+function showTab(event) {
+
+
+    event.preventDefault();
+
+    
+
+}
