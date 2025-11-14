@@ -20,15 +20,21 @@ function growBalloon(event) {
     }
 
 }
-
+//after you do it first time its easy the 2nd time
 function shrinkBalloon(event) {
     if (event.key === "ArrowDown") {
         let currentSize = window.getComputedStyle(balloon).fontSize;
 
-        
+        let sizeNum = parseFloat(currentSize);
+
+        let newSize = sizeNum * .9;
+
+        balloon.style.fontSize = newSize + "px";
+        event.preventDefault();
     }
 }
 document.addEventListener("keydown", growBalloon);
+document.addEventListener("keydown", shrinkBalloon);
 
 // When that works, add a feature where, if you blow up the balloon past a certain size,
 // it explodes. In this case, exploding means that it is replaced with a 💥 emoji, and
